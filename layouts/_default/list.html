@@ -7,7 +7,7 @@
     &middot;
     {{ range .Params.tags }}<a class="label" href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}
     {{ end }}</span>
-    &middot; <time>{{ .Date.Format "02.03.2006" }}</time></li>
+    &middot; <time>{{ .Date.Format "Monday, January 2 2006" }}</time></li>
   {{ end }}
   </ul>
 </div>
