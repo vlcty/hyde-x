@@ -2,15 +2,37 @@
 <div class="content container">
   <div class="post">
     <h1 class="post-title">{{ .Title }}</h1>
-    <span class="post-date">{{ .Date.Format "Monday, January 2 2006" }}{{ if not .Site.Params.hideReadingTime }} &middot; Lesezeit: {{ .ReadingTime }} Minuten{{ end }}
+    <span class="post-date">{{ .Date.Format "Monday, January 2 2006" }}{{ if not .Site.Params.hideReadingTime }} &middot; Lesezeit: {{ .ReadingTime }} Minuten{{ end }} &middot; {{ .WordCount }} Wörter
     {{ if isset .Params "tags" }}
     &middot; Tags:
     {{ range .Params.tags }}<a class="label" href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}
     {{ end }}</span>
+
+    <!-- Display warning when the post is older than a year -->
+    {{ if eq .Type "post" }}
+        {{ $currentTime := (time now) }}
+        {{ $delta := $currentTime.Sub (time .Date ) }}
+        {{ if gt $delta.Hours 8760 }}
+        <span class="postAgeWarning">
+            Achtung! Dieser Artikel ist älter als ein Jahr. Der Inhalt ist möglicherweise nicht mehr aktuell!
+        </span>
+        {{ end }}
+    {{ end }}
+
+    <!-- Content -->
     {{ .Content }}
-    <p>
-        <a href="javascript:history.back()">Zurück</a>
-    </p>
+    <span class="post-date">
+        <br />
+        <br />
+        Du hast einen Kommentar, einen Wunsch oder eine Verbeserung? Schreib mir doch eine E-Mail! Die Infos dazu stehen <a href="{{ "kontakt" | absURL }}">hier</a>.
+    </span>
+    <span>
+        <!--
+            Set a link to go back in history.
+            Name is set so that the javascript in foot.html wont's set the tartget="_blank" stuff
+        -->
+        <a name="dontsettarget" href="javascript:history.back()">Zurück</a>
+    </span>
   </div>
 </div>
 

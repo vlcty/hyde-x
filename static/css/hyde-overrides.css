@@ -14,3 +14,11 @@
   list-style: none;
   margin-bottom: 1rem;
 }
+
+.postAgeWarning {
+    display: block;
+    border-style: none double none double;
+    border-color: red;
+    padding: 1em;
+    margin-bottom: 2em;
+}
