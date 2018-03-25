@@ -23,6 +23,7 @@
     margin-bottom: 2em;
 }
 
+.comment-info,
 .post-snippet {
   display: block;
   margin-top: .5rem;
