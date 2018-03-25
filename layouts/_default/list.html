@@ -1,13 +1,19 @@
 {{ partial "head.html" . }}
 <div class="content container">
+  <h1>Artikel zu Tag "{{ .Data.Term }}":</h1>
+
   <ul class="posts">
   {{ range .Data.Pages }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a>
+    <li>- <a href="{{ .Permalink }}">{{ .Title }}</a>
     {{ if isset .Params "tags" }}
-    &middot;
-    {{ range .Params.tags }}<a class="label" href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>{{ end }}
-    {{ end }}</span>
-    &middot; <time>{{ .Date.Format "Monday, January 2 2006" }}</time></li>
+        &middot;
+        {{ range .Params.tags }}
+            <a class="label" href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+    {{ end }}
+    &middot; <time>{{ .Date.Format "Monday, January 2 2006" }}</time><br />
+    <span class="post-snippet">{{ .Summary }}</span>
+  </li>
   {{ end }}
   </ul>
 </div>

@@ -22,3 +22,10 @@
     padding: 1em;
     margin-bottom: 2em;
 }
+
+.post-snippet {
+  display: block;
+  margin-top: .5rem;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
+}
