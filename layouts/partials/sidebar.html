@@ -1,7 +1,7 @@
 <div class="sidebar">
-  <div class="container">
+  <!-- <div class="container">
         <a href="/"><img src="{{ "blog_image.jpg" | absURL }}" /></a>
-  </div>
+  </div> -->
   <div class="container">
     <div class="sidebar-about">
       <h1>{{ .Site.Params.tagline }}</h1>
@@ -17,13 +17,14 @@
   </div>
   <div class="container sidebar-sticky">
     Links:
-    <ul class="sidebar-nav">
-      <li class="sidebar-nav-item">
-      {{ with .Site.Params.github }}<a href="{{ . }}" target="_blank"><i class="fa fa-github-square fa-3x"></i></a>{{ end }}
-      {{ with .Site.Params.twitter }}<a href="{{ . }}" target="_blank"><i class="fa fa-twitter-square fa-3x"></i></a>{{ end }}
-      {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" target="_blank" type="application/rss+xml"><i class="fa fa-rss-square fa-3x"></i></a>{{ end }}
-      </li>
-    </ul>
+    <p class="sidebar-nav">
+        <a href="https://github.com/vlcty" target="_blank">
+            <img class="social-media-icon" src="{{ "GitHub-Mark-Light-64px.png" | absURL }}" />
+        </a>
+        <a href="https://twitter.com/DerVeloc1ty" target="_blank">
+            <img class="social-media-icon" src="{{ "twitter_social_icon_circle_white.png" | absURL }}" />
+        </a>
+    </p>
 
     {{ partial "footer.html" . }}
   </div>
