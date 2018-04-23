@@ -19,6 +19,11 @@
         {{ end }}
     {{ end }}
 
+    {{ if .Params.toc }}
+    <b>Inhaltsübersicht:</b>
+    {{ .TableOfContents }}
+    {{ end }}
+
     <!-- Content -->
     {{ .Content }}
     <span class="comment-info">
